@@ -70,7 +70,8 @@ def main():
         print("2. Mettre à jour un utilisateur")
         print("3. Supprimer un utilisateur")
         print("4. Lister les utilisateurs")
-        print("5. Quitter")
+        print("5. Ajouter un âge")
+        print("6. Quitter")
 
         choix = input("Entrez votre choix : ")
 

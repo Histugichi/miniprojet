@@ -100,8 +100,13 @@ def main():
             read_users()
 
         elif choix == "5":
-            print("Au revoir !")
-            break
+             age= input("Entrer un age")
+             update_user(ID)
+             print("mis a jour avec succes.")    
+
+        elif choix == "6":
+         print("Au revoir !")
+         break
 
         else:
             print("Choix invalide. Veuillez saisir à nouveau.")

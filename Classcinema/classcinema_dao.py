@@ -1,13 +1,15 @@
-import mysql.connector as mysql
-import database
+import database as db
+from Classcinema import classcinema
 
-class SalleCinema:
+
+class Sallecinema:
     def __init__(self, nom_salle, capacite):
         self.nom_salle = nom_salle
         self.capacite = capacite
-        self.connexion = mysql.connector.connect(
+        self.connexion =db.connexion_db()
             
-        )
+            
+    
         self.curseur = self.connexion.cursor()
         self.creer_table_reservations()
 

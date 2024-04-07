@@ -1,7 +1,7 @@
-import mysql.connector as mysql
-import database
+import database as db
+from filedattentes import filedattente
 
-class FileAttente:
+class Fileattente:
     def __init__(self):
         
         self.curseur = self.connexion.cursor()

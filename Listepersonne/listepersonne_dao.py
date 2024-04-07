@@ -1,15 +1,16 @@
-import mysql.connector as mysql
-import database
+import database as db
+from Listepersonne import listepersonne
 
-# Fonction pour établir une connexion à la base de données MySQL
-def connexion_db():
-    connexion = mysql.connect(
-    )
+# connexion à la base de données MySQL
+class Listepersonnedao:
+ def connexion_db():
+    connexion = db.connexion_db()
+    cursor = connexion.cursor()
     return connexion
 
-# Fonction pour créer un nouvel utilisateur
+# créer un nouvel utilisateur
 def create_user(email, password, nom):
-    connexion = connexion_db()
+    connexion = db.connexion_db()
     curseur = connexion.cursor()
 
     sql = "INSERT INTO utilisateurs(email, mot_de_passe, nom) VALUES(%s,%s,%s)"
@@ -23,7 +24,7 @@ def create_user(email, password, nom):
 
 # Fonction pour lister tous les utilisateurs
 def read_users():
-    connexion = connexion_db()
+    connexion = db.connexion_db()
     curseur = connexion.cursor()
 
     sql = "SELECT * FROM utilisateurs"
@@ -37,7 +38,7 @@ def read_users():
 
 # Fonction pour mettre à jour les informations d'un utilisateur
 def update_user(ID, email, password, nom):
-    connexion = connexion_db()
+    connexion = db.connexion_db()
     curseur = connexion.cursor()
 
     sql = "UPDATE utilisateurs SET email=%s, mot_de_passe=%s, nom=%s WHERE id=%s"
@@ -49,7 +50,7 @@ def update_user(ID, email, password, nom):
 
 # Fonction pour supprimer un utilisateur
 def delete_user(ID):
-    connexion = connexion_db()
+    connexion =db.connexion_db()
     curseur = connexion.cursor()
 
     sql = "DELETE FROM utilisateurs WHERE id=%s"
@@ -59,7 +60,7 @@ def delete_user(ID):
     curseur.close()
     connexion.close()
 
-# Fonction principale pour afficher le menu et interagir avec les utilisateurs
+# afficher le menu et interagir avec les utilisateurs
 def main():
     while True:
         print("\nMenu :")
